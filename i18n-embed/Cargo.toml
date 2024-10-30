@@ -26,7 +26,7 @@ gettext = { workspace = true, optional = true }
 i18n-embed-impl = { workspace = true, optional = true }
 intl-memoizer = "0.5"
 lazy_static = { workspace = true }
-locale_config = { version = "0.3", optional = true }
+sys-locale = { version = "0.3", optional = true }
 log = { workspace = true }
 notify = { version = "6.1.1", optional = true }
 parking_lot = { version = "0.12", optional = true }
@@ -38,7 +38,7 @@ walkdir = { workspace = true, optional = true }
 web-sys = { version = "0.3", features = ["Window", "Navigator"], optional = true }
 
 [dev-dependencies]
-doc-comment = { workspace = true } 
+doc-comment = { workspace = true }
 env_logger = { workspace = true }
 maplit = "1.0"
 pretty_assertions = { workspace = true }
@@ -50,7 +50,7 @@ default = ["rust-embed"]
 gettext-system = ["tr", "tr/gettext", "dep:gettext", "parking_lot", "i18n-embed-impl", "i18n-embed-impl/gettext-system"]
 fluent-system = ["fluent", "fluent-syntax", "parking_lot", "i18n-embed-impl", "i18n-embed-impl/fluent-system", "arc-swap"]
 
-desktop-requester = ["locale_config"]
+desktop-requester = ["sys-locale"]
 web-sys-requester = ["web-sys"]
 
 filesystem-assets = ["walkdir"]

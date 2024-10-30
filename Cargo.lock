@@ -613,7 +613,6 @@ dependencies = [
  "i18n-embed-impl",
  "intl-memoizer",
  "lazy_static",
- "locale_config",
  "log",
  "maplit",
  "notify",
@@ -621,6 +620,7 @@ dependencies = [
  "pretty_assertions",
  "rust-embed",
  "serial_test",
+ "sys-locale",
  "thiserror",
  "tr",
  "unic-langid",
@@ -1188,6 +1188,15 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "sys-locale"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e801cf239ecd6ccd71f03d270d67dd53d13e90aab208bf4b8fe4ad957ea949b0"
+dependencies = [
+ "libc",
 ]
 
 [[package]]

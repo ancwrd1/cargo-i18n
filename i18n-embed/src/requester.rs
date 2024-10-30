@@ -283,16 +283,11 @@ impl DesktopLanguageRequester<'_> {
     }
 
     /// The languages being requested by the operating
-    /// system/environment according to the [locale_config] crate's
+    /// system/environment according to the [sys-locale] crate's
     /// implementation.
     pub fn requested_languages() -> Vec<unic_langid::LanguageIdentifier> {
-        use locale_config::{LanguageRange, Locale};
-
-        let current_locale = Locale::current();
-
-        let ids: Vec<unic_langid::LanguageIdentifier> = current_locale
-            .tags_for("messages")
-            .filter_map(|tag: LanguageRange<'_>| match tag.to_string().parse() {
+        let ids: Vec<unic_langid::LanguageIdentifier> = sys_locale::get_locales()
+            .filter_map(|locale| match locale.parse() {
                 Ok(tag) => Some(tag),
                 Err(err) => {
                     log::error!("Unable to parse your locale: {:?}", err);
